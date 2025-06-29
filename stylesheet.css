@@ -138,7 +138,6 @@ nav ul li a:focus::after {
     -webkit-text-fill-color: transparent;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (max-width: 1000px) {
     .left-division {
         flex-direction: column;
@@ -163,7 +162,6 @@ nav ul li a:focus::after {
     }
 }
 
-/* --- Right Division as full-page accent --- */
 .right-division {
     position: fixed;
     top: 0;
@@ -177,7 +175,6 @@ nav ul li a:focus::after {
     pointer-events: none;
 }
 
-/* Make sure main content is above the right-division */
 main,
 header,
 .center-circle,
@@ -186,7 +183,6 @@ header,
     z-index: 1;
 }
 
-/* Responsive: hide or shrink on small screens */
 @media (max-width: 900px) {
     .right-division {
         display: none;
@@ -220,7 +216,6 @@ header,
     display: block;
 }
 
-/* Responsive: shrink circle on small screens */
 @media (max-width: 1000px) {
     .center-circle {
         width: 200px;
@@ -245,8 +240,6 @@ header,
         padding: 0 !important;
     }
 }
-
-/* --- End Vertical Split Section --- */
 
 .mainleft button,
 .left-division button {
@@ -735,11 +728,3 @@ footer {
   font-size: 1rem;
   background: none;
 }
-
-/* Responsive Design */
-/* @media (max-width: 700px) {
-  main {
-    margin: 1rem;
-    padding: 0.5rem;
-  }
-} */
