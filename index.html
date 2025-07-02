@@ -55,6 +55,7 @@
                     <div class="btn">
                         <button class="button" onclick="window.location='#contact'">Hire Me</button>
                         <button class="button" onclick="window.location='#projects'">View Projects</button>
+                        <button class="button" onclick="window.location='#about'">About</button>
                     </div>
                 </div>
             </div>
@@ -80,8 +81,8 @@
             </div>
         </section>
         <section class="second_section">
-            <h1>Tools I use</h1>
-            <span class="gray_text">Some tools that I use to develop, design and to provide innovative results</span>
+            <h1>Tools I use</h1> <br>
+            <span class="gray_text" id="tools-description">Some tools that I use to develop, design and to <br> provide innovative results</span> <br><br>
             <div class="tools-grid">
                 <div class="tool">
                     <i class="fa-brands fa-html5" style="color:#e44d26"></i>
@@ -151,7 +152,7 @@
                 </div>
             </div>
         </section>
-        <!-- Add this after your second_section, before </main> -->
+        
         <section class="projects_section" id="projects">
             <h1>My Projects</h1>
             <span class="gray_text">Some of my recent work</span>
@@ -268,7 +269,7 @@
         </section>
         <section id="contact">
             <h2 id="contact-heading">Contact</h2>
-            <form id="contact-form">
+            <form id="contact-form" action="connect.php" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Your Message" required></textarea>
