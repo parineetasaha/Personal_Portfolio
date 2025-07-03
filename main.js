@@ -31,21 +31,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close menu when a link is clicked and scroll to section (with delay for mobile)
     // Close menu when a link is clicked and scroll to section (scroll first, then close menu)
-navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function (e) {
-        if (this.hash && document.querySelector(this.hash)) {
-            e.preventDefault();
-            document.querySelector(this.hash).scrollIntoView({ behavior: 'smooth' });
-            setTimeout(() => {
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (this.hash && document.querySelector(this.hash)) {
+                e.preventDefault();
+                document.querySelector(this.hash).scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    navLinks.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }, 500); // 400ms delay to allow scroll to start
+            } else {
                 navLinks.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
-            }, 500); // 400ms delay to allow scroll to start
-        } else {
-            navLinks.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-        }
+            }
+        });
     });
-});
 
     // Close menu when clicking outside
     document.addEventListener('click', function (e) {
@@ -73,30 +73,29 @@ navLinks.querySelectorAll('a').forEach(link => {
 });
 
 // Contact form validation and feedback
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const name = this.name.value.trim();
-  const email = this.email.value.trim();
-  const message = this.message.value.trim();
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const message = this.message.value.trim();
 
-  if (!name || !email || !message) {
-    alert('Please fill in all fields.');
-    return;
-  }
-  // Simple email validation
-  if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-    alert('Please enter a valid email address.');
-    return;
-  }
+    if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+    }
+    // Simple email validation
+    if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
 
-  // Simulate sending (replace with real backend integration)
-  this.reset();
-  alert('Thank you for contacting me! I will get back to you soon.');
+    // Simulate sending (replace with real backend integration)
+      this.reset();
+      alert('Thank you for contacting me! I will get back to you soon.');
 });
 
-// Lazy loading polyfill for older browsers (optional)
+// Lazy loading polyfill for older browsers
 if ('loading' in HTMLImageElement.prototype === false) {
-  document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-    img.src = img.dataset.src || img.src;
-  });
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.src = img.dataset.src || img.src;
+    });
 }
